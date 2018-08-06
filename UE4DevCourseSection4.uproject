@@ -7,7 +7,10 @@
 		{
 			"Name": "UE4DevCourseSection4",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"UMG"
+			]
 		}
 	]
 }
