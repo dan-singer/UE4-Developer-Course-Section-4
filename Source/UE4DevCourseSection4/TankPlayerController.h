@@ -20,7 +20,8 @@ private:
 	float CrosshairXLocation = 0.5f;
 	UPROPERTY(EditAnywhere)
 	float CrosshairYLocation = 0.33333f;
-
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000.0f;
 public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
@@ -30,5 +31,6 @@ private:
 	// Start the tank moving the barrel so that the shot would hit where the crosshair intersects the world
 	void AimTowardsCrosshair();
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
+	bool GetLookVectorHitLocation(FVector LookVector, FVector &OutHitLocation) const;
 
 };
