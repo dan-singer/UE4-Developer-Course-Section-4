@@ -12,10 +12,14 @@ class UE4DEVCOURSESECTION4_API UTankAimingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+private:
+	UStaticMeshComponent* Barrel = nullptr;
+
 public:	
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 	void AimAt(FVector HitLocation);
+	void SetBarrelReference(UStaticMeshComponent* barrelToSet);
 
 protected:
 	// Called when the game starts
