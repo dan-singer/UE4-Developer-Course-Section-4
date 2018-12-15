@@ -7,20 +7,23 @@
 #include "TankAimingComponent.generated.h"
 
 
+class UTankBarrel;
+
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class UE4DEVCOURSESECTION4_API UTankAimingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 private:
-	UStaticMeshComponent* Barrel = nullptr;
+	UTankBarrel* Barrel = nullptr;
 	void MoveBarrelTowards(FVector AimDirection);
 
 public:	
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 	void AimAt(FVector HitLocation, float LaunchSpeed);
-	void SetBarrelReference(UStaticMeshComponent* barrelToSet);
+	void SetBarrelReference(UTankBarrel* barrelToSet);
 
 	// TODO add SetTurretReference
 		
