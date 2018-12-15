@@ -28,6 +28,10 @@ protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:	
+
+	UPROPERTY(EditAnywhere, Category = Fire)
+	float LaunchSpeed = 100000; // TODO find sensible default
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
