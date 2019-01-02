@@ -17,8 +17,6 @@ class UE4DEVCOURSESECTION4_API ATankAIController : public AAIController
 
 
 private: 
-	ATank* GetControlledTank() const;
-	ATank* GetPlayerTank() const;
 	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
 	

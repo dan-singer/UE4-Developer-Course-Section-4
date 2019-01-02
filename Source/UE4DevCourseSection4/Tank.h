@@ -9,6 +9,7 @@
 class UTankAimingComponent;
 class UTankBarrel;
 class UTankTurret;
+class AProjectile;
 
 UCLASS()
 class UE4DEVCOURSESECTION4_API ATank : public APawn
@@ -39,10 +40,20 @@ protected:
 private:	
 
 	UPROPERTY(EditAnywhere, Category = Fire)
-	float LaunchSpeed = 100000; // TODO find sensible default
+	float LaunchSpeed = 8000; // TODO find sensible default
+
+	UPROPERTY(EditAnywhere, Category = Fire)
+	float ReloadTimeInSeconds = 3;
+
+	double LastFireTime = 0;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
 };
