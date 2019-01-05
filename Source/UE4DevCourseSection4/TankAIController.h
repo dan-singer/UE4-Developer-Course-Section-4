@@ -20,4 +20,6 @@ private:
 	void BeginPlay() override;
 	void Tick(float DeltaTime) override;
 	
+	// How fast can the tank get to the player
+	float AcceptanceRadius = 3000;
 };
