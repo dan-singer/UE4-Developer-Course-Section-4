@@ -7,15 +7,6 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("PlayerController Begin Play"));
-
-	ATank* controlledTank = GetControlledTank();
-	if (controlledTank) {
-		UE_LOG(LogTemp, Warning, TEXT("Tank name: %s"), *controlledTank->GetName());
-	}
-	else {
-		UE_LOG(LogTemp, Warning, TEXT("Tank not found"));
-	}
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
