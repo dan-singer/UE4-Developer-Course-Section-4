@@ -6,6 +6,7 @@
 #include "GameFramework/NavMovementComponent.h"
 #include "TankMovementComponent.generated.h"
 
+
 class UTankTrack;
 
 /**
@@ -29,7 +30,9 @@ public:
 private:
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr;
-	
+
+
+
 	// Called from the pathfinding logic by the AIControllers
 	void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
 };
