@@ -17,7 +17,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
+void UTankAimingComponent::AimAt(FVector HitLocation)
 {
 	if (!Barrel)
 		return;
@@ -68,4 +68,8 @@ void UTankAimingComponent::Initialize(UTankBarrel* TankBarrel, UTankTurret* Tank
 {
 	Barrel = TankBarrel;
 	Turret = TankTurret;
+}
+
+const UTankBarrel* UTankAimingComponent::GetBarrel() const {
+	return Barrel;
 }

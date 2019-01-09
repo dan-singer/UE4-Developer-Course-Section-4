@@ -7,7 +7,7 @@
 #include "TankAimingComponent.generated.h"
 
 
-// Enum for aiming state
+// Enum for aiming state //
 UENUM()
 enum class EFiringStatus : uint8
 {
@@ -43,6 +43,12 @@ protected:
 public:	
 	// Sets default values for this component's properties
 	UTankAimingComponent();
-	void AimAt(FVector HitLocation, float LaunchSpeed);
+
+	UPROPERTY(EditAnywhere, Category = Fire)
+	float LaunchSpeed = 8000; 
+
+	void AimAt(FVector HitLocation);
+
+	const UTankBarrel* GetBarrel() const;
 	
 };
