@@ -7,6 +7,10 @@
 #include "TankAimingComponent.generated.h"
 
 
+class UTankBarrel;
+class UTankTurret;
+class AProjectile;
+
 // Enum for aiming state //
 UENUM()
 enum class EFiringStatus : uint8
@@ -29,6 +33,7 @@ class UE4DEVCOURSESECTION4_API UTankAimingComponent : public UActorComponent
 private:
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
+	double LastFireTime = 0;
 	void MoveBarrelTowards(FVector AimDirection);
 	void RotateTurretTowards(FVector AimDirection);
 
@@ -40,15 +45,22 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void Initialize(UTankBarrel* TankBarrel, UTankTurret* TankTurret);
 
-public:	
-	// Sets default values for this component's properties
-	UTankAimingComponent();
+	UPROPERTY(EditAnywhere, Category = Fire)
+	float ReloadTimeInSeconds = 3;
+
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	UPROPERTY(EditAnywhere, Category = Fire)
 	float LaunchSpeed = 8000; 
 
-	void AimAt(FVector HitLocation);
+public:	
+	// Sets default values for this component's properties
+	UTankAimingComponent();
 
-	const UTankBarrel* GetBarrel() const;
+	UFUNCTION(BlueprintCallable)
+	void Fire();
+
+	void AimAt(FVector HitLocation);
 	
 };
